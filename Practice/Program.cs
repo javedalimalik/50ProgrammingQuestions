@@ -267,8 +267,60 @@ namespace ProgrammingQuestions
             Console.WriteLine($"The missing number in the array is: {missingNumber}");
         }
 
-        
 
+        public static void AnagramString()
+        {
+            Console.WriteLine("Enter first string");
+            string str1 = Console.ReadLine().ToLower();
+            Console.WriteLine("Enter second string");
+            string str2 = Console.ReadLine().ToLower();
+            bool areAnagrams = new string(str1.OrderBy(c => c).ToArray()) == new string(str2.OrderBy(c => c).ToArray());
+            Console.WriteLine(areAnagrams ? "The strings are anagrams" : "The strings are not anagrams");
+        }
+
+        public static void FrequencyOfCharacters()
+        {
+            Console.WriteLine("Enter a string to count frequency of characters");
+            string str = Console.ReadLine().ToLower();
+            var frequency = str.GroupBy(c => c).ToDictionary(g => g.Key, g => g.Count());
+            Console.WriteLine("Frequency of characters in the string:");
+            foreach (var kvp in frequency)
+            {
+                Console.WriteLine($"{kvp.Key}: {kvp.Value}");
+            }
+        }
+
+        public static void LongestString()
+        {
+            Console.WriteLine("provide the number of elements in the array");
+            int n = Convert.ToInt32(Console.ReadLine());
+            int index = 0;
+
+            string[] arr = new string[n];
+            Console.WriteLine("Enter the elements of the array");
+            for (int i = 0; i < n; i++)
+            {
+                arr[i] = Console.ReadLine().ToLower();
+            }
+            //var longestString = arr.OrderByDescending(s => s.Length).FirstOrDefault();
+            int maxLength = arr[0].Length;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i].Length > maxLength)
+                {
+                    index = i;
+                }
+            }
+            Console.WriteLine($"The longest string in the array is: {arr[index]}");
+        }
+
+        public static void FindLeapyear()
+        {
+            Console.WriteLine("Enter a year to check if it's a leap year");
+            int year = Convert.ToInt32(Console.ReadLine());
+            bool isLeapYear = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+            Console.WriteLine(isLeapYear ? $"{year} is a leap year" : $"{year} is not a leap year");
+        }
 
 
     }
