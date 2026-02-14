@@ -7,7 +7,7 @@ namespace ProgrammingQuestions
 
         static void Main(string[] args)
         {
-            FindSumOfArray();
+            //FindLeapyear();
 
         }
 
@@ -226,6 +226,23 @@ namespace ProgrammingQuestions
             Console.WriteLine($"The sum of the elements in the array is: {sum}");
         }
 
+        public static void SecondLargestInArray()
+        {
+            Console.WriteLine("Enter the number of elements in the array");
+            int n = Convert.ToInt32(Console.ReadLine());
+            int[] arr = new int[n];
+            Console.WriteLine("Enter the elements of the array");
+            for (int i = 0; i < n; i++)
+            {
+                arr[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            var secondLargest = arr.OrderByDescending(x => x).Distinct().Skip(1).FirstOrDefault();
+            Console.WriteLine($"The second largest element in the array is: {secondLargest}");
+
+
+        }
+
+
 
     }
-}
+} 
