@@ -251,6 +251,25 @@ namespace ProgrammingQuestions
             Console.WriteLine($"Number of words in the string: {wordCount}");
         }
 
-       
+        public static void FindMissingNumberInArray()
+        {
+            Console.WriteLine("Enter the number of elements in the array");
+            int n = Convert.ToInt32(Console.ReadLine());
+            int[] arr = new int[n];
+            Console.WriteLine("Enter the elements of the array (from 1 to n+1 with one missing)");
+            for (int i = 0; i < n; i++)
+            {
+                arr[i] = Convert.ToInt32(Console.ReadLine()); //{1,2,4,5}
+            }
+            int expectedSum = (n + 1) * (n + 2) / 2; // Sum of first n+1 natural numbers // 1+2+3+4+5 = 15
+            int actualSum = arr.Sum(); // 12
+            int missingNumber = expectedSum - actualSum;
+            Console.WriteLine($"The missing number in the array is: {missingNumber}");
+        }
+
+        
+
+
+
     }
 } 
