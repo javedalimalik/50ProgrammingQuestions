@@ -242,7 +242,15 @@ namespace ProgrammingQuestions
 
         }
 
+        public static void CountWordsInstring()
+        {
+            Console.WriteLine("Enter a string to count words");
+            string str = Console.ReadLine();
+            int wordCount = str.Split(' ').Count();
+            //int wordCount = str.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries).Length;
+            Console.WriteLine($"Number of words in the string: {wordCount}");
+        }
 
-
+       
     }
 } 
